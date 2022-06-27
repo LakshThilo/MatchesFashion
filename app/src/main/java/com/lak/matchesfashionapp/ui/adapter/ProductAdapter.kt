@@ -48,15 +48,12 @@ class ProductAdapter(val onClickListener: (ProductDetails) -> Unit): RecyclerVie
             binding.tvDesigner.text = product.designer.name
             binding.tvProductPrice.text = product.price.formattedValue
 
-            val image: ImageView =  itemView.findViewById(R.id.iv_product_image)
-            //Glide.with(itemView.context).load("https://assetsprx.matchesfashion.com/img/product/1482209_1_medium.jpg").into(image)
-            Log.d("LAKSHITHA", "bind:${product.primaryImageMap.medium.url} ")
-            val imageUrl = product.primaryImageMap.medium.url
-            Glide.with(itemView.context).asBitmap().load(imageUrl).into(image)
+            val imageUrl = "https:${product.primaryImageMap.medium.url}"
+            Log.d("LAKSHITHA", "imageUrl :${imageUrl} ")
+            //Glide.with(itemView.context).asBitmap().load(imageUrl).into(image)
 
-            /*Log.d("LAKSHITHA", "bind:${product.primaryImageMap.medium.url} ")
-            binding.ivProductImage.load(product.primaryImageMap.medium.url)
-*/
+            binding.ivProductImage.load(imageUrl)
+
         }
     }
 }
